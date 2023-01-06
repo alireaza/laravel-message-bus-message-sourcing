@@ -34,6 +34,17 @@ return new class extends Migration {
                 $table->foreign('correlation_id')->references('message_id')->on('stored_messages')->cascadeOnUpdate()->restrictOnDelete();
             });
 
+            $connection = config('database.default');
+            $driver = config('database.connections.' . $connection . '.driver');
+
+            if ($driver === 'pgsql') {
+                DB::unprepared('CREATE OR REPLACE RULE soft_delete_stored_messages
+                AS ON DELETE TO stored_messages
+                DO INSTEAD UPDATE stored_messages
+                SET deleted_at = CURRENT_TIMESTAMP
+                WHERE id = OLD.id;');
+            }
+
             DB::commit();
         } catch (Throwable $throwable) {
             DB::rollBack();
@@ -51,6 +62,13 @@ return new class extends Migration {
     {
         try {
             DB::beginTransaction();
+
+            $connection = config('database.default');
+            $driver = config('database.connections.' . $connection . '.driver');
+
+            if ($driver === 'pgsql') {
+                DB::unprepared('DROP RULE IF EXISTS soft_delete_stored_messages ON stored_messages;');
+            }
 
             Schema::dropIfExists('stored_messages');
 
