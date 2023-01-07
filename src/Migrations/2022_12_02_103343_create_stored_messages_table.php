@@ -17,7 +17,7 @@ return new class extends Migration {
 
             Schema::create('stored_messages', function (Blueprint $table): void {
                 $table->id();
-                $table->string('message_id')->unique();
+                $table->string('message_id');
                 $table->string('causation_id');
                 $table->string('correlation_id');
                 $table->string('name');
@@ -25,13 +25,6 @@ return new class extends Migration {
                 $table->unsignedBigInteger('timestamp');
                 $table->timestamps();
                 $table->softDeletes();
-
-                $table->unique(['message_id', 'causation_id', 'correlation_id', 'deleted_at']);
-            });
-
-            Schema::table('stored_messages', function (Blueprint $table) {
-                $table->foreign('causation_id')->references('message_id')->on('stored_messages')->cascadeOnUpdate()->restrictOnDelete();
-                $table->foreign('correlation_id')->references('message_id')->on('stored_messages')->cascadeOnUpdate()->restrictOnDelete();
             });
 
             DB::commit();

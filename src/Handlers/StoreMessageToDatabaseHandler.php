@@ -10,7 +10,7 @@ class StoreMessageToDatabaseHandler implements HandlerInterface
 {
     public function __invoke(MessageInterface $message): void
     {
-        StoredMessage::create([
+        StoredMessage::insertOrIgnore([
             'message_id' => $message->getMessageId(),
             'causation_id' => $message->getCausationId(),
             'correlation_id' => $message->getCorrelationId(),
