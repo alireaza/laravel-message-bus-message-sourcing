@@ -1,8 +1,8 @@
 <?php
 
-namespace AliReaza\Laravel\Gateway\Message\Sourcing\Handlers;
+namespace AliReaza\Laravel\MessageBus\MessageSourcing\Handlers;
 
-use AliReaza\Laravel\Gateway\Message\Sourcing\Models\StoredMessage;
+use AliReaza\Laravel\MessageBus\MessageSourcing\Models\StoredMessage;
 use AliReaza\MessageBus\HandlerInterface;
 use AliReaza\MessageBus\MessageInterface;
 

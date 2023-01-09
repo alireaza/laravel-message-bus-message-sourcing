@@ -1,11 +1,11 @@
 <?php
 
-namespace AliReaza\Laravel\Gateway\Message\Sourcing;
+namespace AliReaza\Laravel\MessageBus\MessageSourcing;
 
 use Illuminate\Support\ServiceProvider;
-use AliReaza\Laravel\Gateway\Message\Sourcing\Commands\StoreMessageFromKafkaCommand;
+use AliReaza\Laravel\MessageBus\MessageSourcing\Commands\StoreMessageFromKafkaCommand;
 
-class LaravelMessageSourcingServiceProvider extends ServiceProvider
+class MessageSourcingServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.

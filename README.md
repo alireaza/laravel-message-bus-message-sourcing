@@ -1,11 +1,11 @@
-# Message Sourcing for Laravel
+# Message Sourcing for Laravel Message Bus
 
 
 ## Install
 
 Via Composer
 ```bash
-$ composer require alireaza/laravel-message-sourcing
+$ composer require alireaza/laravel-message-bus-message-sourcing
 ```
 
 

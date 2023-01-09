@@ -1,6 +1,6 @@
 <?php
 
-namespace AliReaza\Laravel\Gateway\Message\Sourcing\Models;
+namespace AliReaza\Laravel\MessageBus\MessageSourcing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

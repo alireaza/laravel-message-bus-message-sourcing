@@ -1,8 +1,8 @@
 <?php
 
-namespace AliReaza\Laravel\Gateway\Message\Sourcing\Commands;
+namespace AliReaza\Laravel\MessageBus\MessageSourcing\Commands;
 
-use AliReaza\Laravel\Gateway\Message\Sourcing\Handlers\StoreMessageToDatabaseHandler;
+use AliReaza\Laravel\MessageBus\MessageSourcing\Handlers\StoreMessageToDatabaseHandler;
 use AliReaza\Laravel\MessageBus\Kafka\Commands\KafkaMessagesHandlerCommand;
 use AliReaza\MessageBus\Message;
 use AliReaza\MessageBus\MessageHandlerInterface;
